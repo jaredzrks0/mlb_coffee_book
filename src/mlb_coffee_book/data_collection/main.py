@@ -69,7 +69,7 @@ class TranscriptScraper():
         self._collect_game_URLs()
 
 
-        for game_url in self.game_urls[:3]:
+        for game_url in self.game_urls:
             best_home, best_away = self._get_best_broadcasts(game_url, self.username, self.password)
             time.sleep(2)
             self._download_video_and_subtitles(game_url, best_home, download_video=False)
@@ -280,26 +280,4 @@ class TranscriptScraper():
         # Optional: normalize spaces
         result = " ".join(result.split())
         return result
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if __name__ == '__main__':
-
-    scraper = TranscriptScraper(start_date='2025-05-01', end_date='2025-05-02')
-
-    scraper.build_and_save_transcripts()
 

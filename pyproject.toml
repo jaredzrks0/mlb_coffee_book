@@ -1,5 +1,5 @@
 [project]
-name = "mlb-coffee-book"
+name = "mlb_coffee_book"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -19,8 +19,17 @@ dependencies = [
 ]
 
 [project.scripts]
-mlb-coffee-book = "mlb_coffee_book:main"
+mlb_coffee_book = "mlb_coffee_book:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.uv.sources]
+multimodal-communication = { path = "../mlb_coffee_book", editable = true }
+
+[dependency-groups]
+dev = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mlb_coffee_book"]
